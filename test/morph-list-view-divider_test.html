@@ -83,13 +83,72 @@
         });
 
         context('on Android platform', () => {
-          // color: rgba(0, 0, 0, 0.54);
+
+          let element, slotElementStyles;
+
+          beforeEach(() => {
+            element = fixture('AndroidTestFixture');
+            slotElementStyles = window.getComputedStyle(element);
+          });
+
+          it('Should have font color rgba(0, 0, 0, 0.54)', () => {
+            const androidTitleFontColor = slotElementStyles.getPropertyValue('color');
+
+            // convert rgba alpha(last value) into 2 decimal only to work with safari(safari has 6 decimal places so test fails wrongly)
+            const alpha = androidTitleFontColor.replace(/^.*,(.+)\)/, '$1');
+            const alphaTwoDecimal = Number(alpha).toFixed(2);
+            const androidTitleFontColorTwoDecimalAlpha = androidTitleFontColor.replace(/[\d\.]+\)$/g, alphaTwoDecimal + ')');
+
+            expect(androidTitleFontColorTwoDecimalAlpha).to.equal('rgba(0, 0, 0, 0.54)');
+          });
+
           // display: list-item;
+          it('Should have display of block for Android platform', () => {
+            const androidDividerDisplay = slotElementStyles.getPropertyValue('display');
+
+            expect(androidDividerDisplay).to.equal('list-item');
+          });
+
           // height: 48px;
+          it('Should have height of 48px for Android platform', () => {
+            const androidDividerHeight = slotElementStyles.getPropertyValue('height');
+
+            expect(androidDividerHeight).to.equal('48px');
+          });
+
           // line-height: 48px;
+          it('Should have line-height of 48px for Android platform', () => {
+            const androidDividerLineHeight = slotElementStyles.getPropertyValue('line-height');
+
+            expect(androidDividerLineHeight).to.equal('48px');
+          });
+
           // padding: 0px 16px;
+          it('Should have padding top and bottom of 0px and padding left and right of 16px for Android platform', () => {
+            const androidDividerPaddingTop = slotElementStyles.getPropertyValue('padding-top');
+            const androidDividerPaddingBottom = slotElementStyles.getPropertyValue('padding-bottom');
+            const androidDividerPaddingRight = slotElementStyles.getPropertyValue('padding-right');
+            const androidDividerPaddingLeft = slotElementStyles.getPropertyValue('padding-left');
+
+            expect(androidDividerPaddingTop).to.equal('0px');
+            expect(androidDividerPaddingBottom).to.equal('0px');
+            expect(androidDividerPaddingRight).to.equal('16px');
+            expect(androidDividerPaddingLeft).to.equal('16px');
+          });
+
           // background: rgb(244, 244, 244);
+          it('Should have background color of rgb(244, 244, 244) for Android platform', () => {
+            const androidDividerBackgroundColor = slotElementStyles.getPropertyValue('background-color');
+
+            expect(androidDividerBackgroundColor).to.equal('rgb(244, 244, 244)');
+          });
+
           // font-size: 14px;
+          it('Should have font-size of 14px for Android platform', () => {
+            const androidDividerFontSize = slotElementStyles.getPropertyValue('font-size');
+
+            expect(androidDividerFontSize).to.equal('14px');
+          });
         });
 
         
