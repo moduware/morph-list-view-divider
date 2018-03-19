@@ -6,44 +6,93 @@
 
     <title>morph-list-view-divider test</title>
 
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
     <script src="../../web-component-tester/browser.js"></script>
 
     <link rel="import" href="../morph-list-view-divider.html">
   </head>
   <body>
 
-    <test-fixture id="BasicTestFixture">
+    <test-fixture id="IosTestFixture">
       <template>
-        <morph-list-view-divider></morph-list-view-divider>
+        <morph-list-view-divider platform="ios">My Divider</morph-list-view-divider>
       </template>
     </test-fixture>
 
-    <test-fixture id="ChangedPropertyTestFixture">
+    <test-fixture id="AndroidTestFixture">
       <template>
-        <morph-list-view-divider prop1="new-prop1"></morph-list-view-divider>
+        <morph-list-view-divider platform="android">My Divider</morph-list-view-divider>
       </template>
     </test-fixture>
 
     <script>
-      suite('morph-list-view-divider', () => {
 
-        test('instantiating the element with default properties works', () => {
-          const element = fixture('BasicTestFixture');
-          assert.equal(element.prop1, 'morph-list-view-divider');
-          const elementShadowRoot = element.shadowRoot;
-          const elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello morph-list-view-divider!');
+      describe('morph-list-view-divider', () => {
+
+        context('on IOS platform', () => {
+
+          let element, elementShadowRoot, slotElementStyles;
+
+          beforeEach(function () {
+            element = fixture('IosTestFixture');
+            elementShadowRoot = element.shadowRoot;
+            slotElementStyles = window.getComputedStyle(element);
+          });
+
+          // color: #8e8e93;
+          it('Should have correct main-text font color for IOS platform', () => {
+            const iosDividerFontColor = slotElementStyles.getPropertyValue('color');
+
+            expect(iosDividerFontColor).to.equal('rgb(142, 142, 147)');
+          });
+
+          // display: block;
+          it('Should have display of block for IOS platform', () => {
+            const iosDividerDisplay = slotElementStyles.getPropertyValue('display');
+
+            expect(iosDividerDisplay).to.equal('block');
+          });
+          
+          // height: 31px;
+          it('Should have height of 31px for IOS platform', () => {
+            const iosDividerHeight = slotElementStyles.getPropertyValue('height');
+
+            expect(iosDividerHeight).to.equal('31px');
+          });
+
+          // padding: 4px 15px;
+          it('Should have padding of (4px 15px) for IOS platform', () => {
+            const iosDividerPaddingTop = slotElementStyles.getPropertyValue('padding-top');
+            const iosDividerPaddingBottom = slotElementStyles.getPropertyValue('padding-bottom');
+            const iosDividerPaddingRight = slotElementStyles.getPropertyValue('padding-right');
+            const iosDividerPaddingLeft = slotElementStyles.getPropertyValue('padding-left');
+
+            expect(iosDividerPaddingTop).to.equal('4px');
+            expect(iosDividerPaddingBottom).to.equal('4px');
+            expect(iosDividerPaddingRight).to.equal('15px');
+            expect(iosDividerPaddingLeft).to.equal('15px');
+          });
+
+          // background: #f7f7f7;
+          it('Should have line-height of 23.8px for IOS platform', () => {
+            const iosDividerBackgroundColor = slotElementStyles.getPropertyValue('background-color');
+
+            expect(iosDividerBackgroundColor).to.equal('rgb(247, 247, 247)');
+          });
+          // font - size: 17px;
         });
 
-        test('setting a property on the element works', () => {
-          // Create a test fixture
-          const element = fixture('ChangedPropertyTestFixture');
-          assert.equal(element.prop1, 'new-prop1');
-          const elementShadowRoot = element.shadowRoot;
-          const elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello new-prop1!');
+        context('on Android platform', () => {
+          // color: rgba(0, 0, 0, 0.54);
+          // display: list-item;
+          // height: 48px;
+          // line-height: 48px;
+          // padding: 0px 16px;
+          // background: rgb(244, 244, 244);
+          // font-size: 14px;
         });
+
+        
 
       });
     </script>
