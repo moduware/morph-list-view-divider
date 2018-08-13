@@ -2,10 +2,15 @@
 
 Divider component for list view
 
-## Getting Started:
-For the information about how to clone the desired repository, running the local server and testing, please refer to this [link](https://github.com/moduware/polymorph-components/blob/master/INFO.md).
+`morph-list-view-divider` changes its look based on when it is either IOS device or Android device.
+
+## Getting Started
+
+For the information about how to clone the desired repository, running the local server and testing, please refer to Polymorph elements getting started docs at the end of this repository.
 
 ## Demo
+
+- For an inline demo you can edit please see `morph-list-view` component on webcomponents website here [morph-list-view]
 
 - Here is a quick demo of the `morph-list-view-divider` element for **IOS platform**.
 
@@ -41,3 +46,11 @@ For the information about how to clone the desired repository, running the local
 </template>
 
 ```
+
+## Further help
+
+For more information on how to install and run test please go here - [Polymorph elements getting started]
+
+[Polymorph elements getting started]: https://github.com/moduware/polymorph-components/blob/master/INFO.md
+
+[morph-list-view]: https://www.webcomponents.org/element/moduware/morph-list-view
