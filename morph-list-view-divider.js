@@ -1,9 +1,18 @@
-<link rel="import" href="../polymer/polymer-element.html">
-<link rel="import" href="../morph-shared-styles/morph-shared-styles.html">
-<link rel="import" href="../morph-element/morph-element.html">
-
-<dom-module id="morph-list-view-divider">
-  <template>
+import { MorphElement } from '@polymer/morph-element/morph-element.js';
+import '@polymer/morph-shared-styles/morph-shared-styles.js';
+import { PolymerElement } from '@polymer/polymer/polymer-element.js';
+import { html } from '@polymer/polymer/lib/utils/html-tag.js';
+/**
+ * `morph-list-view-divider`
+ * Divider component for list view
+ *
+ * @customElement
+ * @polymer
+ * @demo demo/index.html
+ */
+class MorphListViewDivider extends MorphElement(PolymerElement) {
+  static get template() {
+    return html`
     <style include="morph-shared-styles">
       :host {
         white-space: nowrap;
@@ -38,24 +47,13 @@
       }
     </style>
     <slot></slot>
-  </template>
+`;
+  }
 
-  <script>
-    /**
-     * `morph-list-view-divider`
-     * Divider component for list view
-     *
-     * @customElement
-     * @polymer
-     * @demo demo/index.html
-     */
-    class MorphListViewDivider extends MorphElement(Polymer.Element) {
-      static get is() { return 'morph-list-view-divider'; }
-      static get properties() {
-        return {};
-      }
-    }
+  static get is() { return 'morph-list-view-divider'; }
+  static get properties() {
+    return {};
+  }
+}
 
-    window.customElements.define(MorphListViewDivider.is, MorphListViewDivider);
-  </script>
-</dom-module>
+window.customElements.define(MorphListViewDivider.is, MorphListViewDivider);
