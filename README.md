@@ -17,13 +17,13 @@ For the information about how to clone the desired repository, running the local
 - Here is a quick demo of the `morph-list-view-divider` element for **IOS platform**.
 
   <p align="center">
-    <img src="demo-images/ios-divider-inside-view-demo.png" alt="IOS morph-list-view-divider demo"/>
+    <img src="https://github.com/moduware/morph-list-view-divider/blob/master/demo-images/ios-divider-inside-view-demo.png?raw=true" alt="IOS morph-list-view-divider demo"/>
   </p>
 
 - Here is a quick demo of the `morph-list-view-divider` element for **Android platform**.
 
   <p align="center">
-    <img src="demo-images/android-divider-inside-view-demo.png" alt="Android morph-list-view-divider demo"/>
+    <img src="https://github.com/moduware/morph-list-view-divider/blob/master/demo-images/android-divider-inside-view-demo.png?raw=true" alt="Android morph-list-view-divider demo"/>
   </p>
 
 - Here is the `morph-list-view-divider` HTML markup for both **IOS** and **Android** platform
