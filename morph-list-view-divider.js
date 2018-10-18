@@ -1,7 +1,7 @@
 import { MorphElement } from '@moduware/morph-element/morph-element.js';
 import '@moduware/morph-shared-styles/morph-shared-styles.js';
-import { PolymerElement } from '@polymer/polymer/polymer-element.js';
-import { html } from '@polymer/polymer/lib/utils/html-tag.js';
+import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
+
 /**
  * `morph-list-view-divider`
  * Divider component for list view
@@ -10,7 +10,7 @@ import { html } from '@polymer/polymer/lib/utils/html-tag.js';
  * @polymer
  * @demo demo/index.html
  */
-class MorphListViewDivider extends MorphElement(PolymerElement) {
+export class MorphListViewDivider extends MorphElement(PolymerElement) {
   static get template() {
     return html`
     <style include="morph-shared-styles">

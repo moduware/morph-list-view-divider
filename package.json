@@ -14,12 +14,13 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@polymer/polymer": "^3.0.0",
-    "@moduware/morph-element": "github:moduware/morph-element#polymer3",
-    "@moduware/morph-shared-styles": "github:moduware/morph-shared-styles#polymer3"
+    "@moduware/morph-element": "",
+    "@moduware/morph-shared-styles": "^1.0.0"
   },
   "devDependencies": {
     "@polymer/iron-demo-helpers": "^3.0.0-pre.18",
     "wct-browser-legacy": "^1.0.1",
-    "@webcomponents/webcomponentsjs": "^2.0.0"
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "wct-istanbub": "^0.2.7"
   }
 }
