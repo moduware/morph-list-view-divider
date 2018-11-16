@@ -13,6 +13,12 @@
   </head>
   <body>
 
+    <test-fixture id="BasicTestFixture">
+      <template>
+        <morph-list-view-divider>My Divider</morph-list-view-divider>
+      </template>
+    </test-fixture>
+
     <test-fixture id="IosTestFixture">
       <template>
         <morph-list-view-divider platform="ios">My Divider</morph-list-view-divider>
@@ -29,6 +35,20 @@
 
       describe('morph-list-view-divider', () => {
 
+        context('Test auto detect platform', () => {
+          let element;
+
+          beforeEach(() => {
+            element = fixture('BasicTestFixture');
+          });
+
+          it('Should auto detect platform and assign value', async () => {
+            await element.updateComplete;
+
+            expect(element.platform).to.be.ok;
+          });
+        });
+
         context('on IOS platform', () => {
 
           let element, elementShadowRoot, slotElementStyles;
@@ -40,28 +60,36 @@
           });
 
           // color: #8e8e93;
-          it('Should have correct main-text font color for IOS platform', () => {
+          it('Should have correct main-text font color for IOS platform', async () => {
+            await element.updateComplete;
+
             const iosDividerFontColor = slotElementStyles.getPropertyValue('color');
 
             expect(iosDividerFontColor).to.equal('rgb(142, 142, 147)');
           });
 
           // display: block;
-          it('Should have display of block for IOS platform', () => {
+          it('Should have display of block for IOS platform', async () => {
+            await element.updateComplete;
+
             const iosDividerDisplay = slotElementStyles.getPropertyValue('display');
 
             expect(iosDividerDisplay).to.equal('block');
           });
           
           // height: 31px;
-          it('Should have height of 31px for IOS platform', () => {
+          it('Should have height of 31px for IOS platform', async () => {
+            await element.updateComplete;
+
             const iosDividerHeight = slotElementStyles.getPropertyValue('height');
 
             expect(iosDividerHeight).to.equal('31px');
           });
 
           // padding: 4px 15px;
-          it('Should have padding of (4px 15px) for IOS platform', () => {
+          it('Should have padding of (4px 15px) for IOS platform', async () => {
+            await element.updateComplete;
+
             const iosDividerPaddingTop = slotElementStyles.getPropertyValue('padding-top');
             const iosDividerPaddingBottom = slotElementStyles.getPropertyValue('padding-bottom');
             const iosDividerPaddingRight = slotElementStyles.getPropertyValue('padding-right');
@@ -74,7 +102,9 @@
           });
 
           // background: #f7f7f7;
-          it('Should have line-height of 23.8px for IOS platform', () => {
+          it('Should have line-height of 23.8px for IOS platform', async () => {
+            await element.updateComplete;
+
             const iosDividerBackgroundColor = slotElementStyles.getPropertyValue('background-color');
 
             expect(iosDividerBackgroundColor).to.equal('rgb(247, 247, 247)');
@@ -91,7 +121,9 @@
             slotElementStyles = window.getComputedStyle(element);
           });
 
-          it('Should have font color rgba(0, 0, 0, 0.54)', () => {
+          it('Should have font color rgba(0, 0, 0, 0.54)', async () => {
+            await element.updateComplete;
+            
             const androidTitleFontColor = slotElementStyles.getPropertyValue('color');
 
             // convert rgba alpha(last value) into 2 decimal only to work with safari(safari has 6 decimal places so test fails wrongly)
@@ -103,28 +135,36 @@
           });
 
           // display: list-item;
-          it('Should have display of block for Android platform', () => {
+          it('Should have display of block for Android platform', async () => {
+            await element.updateComplete;
+            
             const androidDividerDisplay = slotElementStyles.getPropertyValue('display');
 
             expect(androidDividerDisplay).to.equal('list-item');
           });
 
           // height: 48px;
-          it('Should have height of 48px for Android platform', () => {
+          it('Should have height of 48px for Android platform', async () => {
+            await element.updateComplete;
+            
             const androidDividerHeight = slotElementStyles.getPropertyValue('height');
 
             expect(androidDividerHeight).to.equal('48px');
           });
 
           // line-height: 48px;
-          it('Should have line-height of 48px for Android platform', () => {
+          it('Should have line-height of 48px for Android platform', async () => {
+            await element.updateComplete;
+            
             const androidDividerLineHeight = slotElementStyles.getPropertyValue('line-height');
 
             expect(androidDividerLineHeight).to.equal('48px');
           });
 
           // padding: 0px 16px;
-          it('Should have padding top and bottom of 0px and padding left and right of 16px for Android platform', () => {
+          it('Should have padding top and bottom of 0px and padding left and right of 16px for Android platform', async () => {
+            await element.updateComplete;
+            
             const androidDividerPaddingTop = slotElementStyles.getPropertyValue('padding-top');
             const androidDividerPaddingBottom = slotElementStyles.getPropertyValue('padding-bottom');
             const androidDividerPaddingRight = slotElementStyles.getPropertyValue('padding-right');
@@ -137,14 +177,18 @@
           });
 
           // background: rgb(244, 244, 244);
-          it('Should have background color of rgb(244, 244, 244) for Android platform', () => {
+          it('Should have background color of rgb(244, 244, 244) for Android platform', async () => {
+            await element.updateComplete;
+            
             const androidDividerBackgroundColor = slotElementStyles.getPropertyValue('background-color');
 
             expect(androidDividerBackgroundColor).to.equal('rgb(244, 244, 244)');
           });
 
           // font-size: 14px;
-          it('Should have font-size of 14px for Android platform', () => {
+          it('Should have font-size of 14px for Android platform', async () => {
+            await element.updateComplete;
+            
             const androidDividerFontSize = slotElementStyles.getPropertyValue('font-size');
 
             expect(androidDividerFontSize).to.equal('14px');
