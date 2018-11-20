@@ -60,9 +60,12 @@ export class MorphListViewDivider extends LitElement {
     };
   }
 
+  /**
+   * LitElement lifecycle called once before the first updated() is called
+   */
   firstUpdated() {
     super.firstUpdated();
-
+    // check for platform attribute if already set in HTML markup before auto detecting platform and assigning new value
     if (!this.hasAttribute('platform')) {
       this.platform = getPlatform();
     }
