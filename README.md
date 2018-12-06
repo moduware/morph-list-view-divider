@@ -4,7 +4,7 @@
 
 Divider component for list view
 
-`morph-list-view-divider` changes its look based on when it is either IOS device or Android device.
+`morph-list-view-divider` changes its look based on when it is either IOS device or Android device. Currently being updated to use lit-element as base class. More detailed documention coming soon. 
 
 ## Getting Started
 

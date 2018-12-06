@@ -1,6 +1,6 @@
 import { LitElement, html } from '@polymer/lit-element';
+import { getPlatform } from '@moduware/lit-utils';
 import '@moduware/morph-shared-styles/morph-shared-styles.js';
-import { getPlatform } from './src/morph-element.js';
 
 /**
  * `morph-list-view-divider`
@@ -47,7 +47,7 @@ export class MorphListViewDivider extends LitElement {
       }
     </style>
     <slot></slot>
-`;
+    `;
   }
 
   static get is() { return 'morph-list-view-divider'; }
