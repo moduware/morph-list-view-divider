@@ -33,6 +33,7 @@ export class MorphListViewDivider extends LitElement {
           padding: 4px 15px;
           background: #f7f7f7;
           font-size: 17px;
+          font-family: -apple-system, 'SF UI Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
         }
       
         :host([platform="android"]) {
@@ -43,6 +44,7 @@ export class MorphListViewDivider extends LitElement {
           padding: 0px 16px;
           background: rgb(244, 244, 244);
           font-size: 14px;
+          font-family: Roboto, Noto, Helvetica, Arial, sans-serif;
         }
       `
     ];
