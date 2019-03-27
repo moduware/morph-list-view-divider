@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/PolymerElements/paper-progress)
 
-Divider component for list view
+A divider web component for list view component.
 
 `morph-list-view-divider` changes its look based on when it is either IOS device or Android device. Currently being updated to use lit-element as base class. More detailed documention coming soon. 
 

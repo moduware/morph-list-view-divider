@@ -1,6 +1,5 @@
-import { LitElement, html } from '@polymer/lit-element';
+import { LitElement, html, css } from 'lit-element';
 import { getPlatform } from '@moduware/lit-utils';
-import '@moduware/morph-shared-styles/morph-shared-styles.js';
 
 /**
  * `morph-list-view-divider`
@@ -11,42 +10,48 @@ import '@moduware/morph-shared-styles/morph-shared-styles.js';
  * @demo demo/index.html
  */
 export class MorphListViewDivider extends LitElement {
+  static get styles() {
+    return [
+      css`
+        :host {
+          white-space: nowrap;
+          position: relative;
+          max-width: 100%;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          z-index: 15;
+          box-sizing: border-box;
+          overflow: hidden;
+          margin-top: -1px;
+        }
+      
+        :host([platform="ios"]) {
+          color: #8e8e93;
+          display: block;
+          height: 31px;
+          line-height: 23.8px;
+          padding: 4px 15px;
+          background: #f7f7f7;
+          font-size: 17px;
+        }
+      
+        :host([platform="android"]) {
+          color: rgba(0, 0, 0, 0.54);
+          display: list-item;
+          height: 48px;
+          line-height: 48px;
+          padding: 0px 16px;
+          background: rgb(244, 244, 244);
+          font-size: 14px;
+        }
+      `
+    ];
+  }
+
+
   render() {
     return html`
-    <style include="morph-shared-styles">
-      :host {
-        white-space: nowrap;
-        position: relative;
-        max-width: 100%;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        z-index: 15;
-        box-sizing: border-box;
-        overflow: hidden;
-        margin-top: -1px;
-      }
-
-      :host([platform="ios"]) {
-        color: #8e8e93;
-        display: block;
-        height: 31px;
-        line-height: 23.8px;
-        padding: 4px 15px;
-        background: #f7f7f7;
-        font-size: 17px;
-      }
-
-      :host([platform="android"]) {
-        color: rgba(0, 0, 0, 0.54);
-        display: list-item;
-        height: 48px;
-        line-height: 48px;
-        padding: 0px 16px;
-        background: rgb(244, 244, 244);
-        font-size: 14px;
-      }
-    </style>
-    <slot></slot>
+      <slot></slot>
     `;
   }
 
